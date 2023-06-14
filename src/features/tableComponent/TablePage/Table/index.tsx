@@ -11,7 +11,7 @@ const Table = () => {
       {bookList.map((book) => (
         <Row key={book.id} >
           <Content>
-            <StyledLink>&nbsp;&nbsp;{book.content}</StyledLink>
+            <StyledLink>&nbsp;&nbsp;{book.description}</StyledLink>
           </Content>
         </Row>
       ))}
