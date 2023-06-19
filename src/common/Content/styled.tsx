@@ -18,6 +18,6 @@ export const SectionArea = styled.div`
   padding-top: 14px;
   margin: 0 auto;
   @media (min-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-   margin-left: 160px;
+    margin-left: 160px;
   }
 `;

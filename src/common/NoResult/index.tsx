@@ -1,9 +1,5 @@
 import { NoResultContainer, StyledH1 } from "./styled";
-
-interface NoResultProps {
-  title: string;
-  error404: string;
-}
+import { NoResultProps } from "../interfaces";
 
 const NoResult: React.FC<NoResultProps> = ({ title, error404 }) => {
   return (

@@ -9,6 +9,7 @@ export const theme = {
     mystic: "#E4E6F0",
     pattensBlue: "#D6E4FF",
     scienceBlue: "#0044CC",
+    crumbBlue: "#2c92bb",
   },
   breakpoint: {
     maxContentSize: 1368,

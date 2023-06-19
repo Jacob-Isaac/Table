@@ -1,4 +1,3 @@
-
 export interface BookState {
   bookList: DataRow[];
   authorDetails: DataRow[];
@@ -17,7 +16,6 @@ export interface VolumeInfo {
   imageLinks: {
     thumbnail: string;
   };
-  
 }
 export interface DataRow {
   id: string;
@@ -27,4 +25,36 @@ export interface DataRow {
   };
   authors: string;
   link: string;
+}
+
+export interface IContent {
+  title: string;
+  body: React.ReactNode;
+  extraContent?: string;
+}
+
+export interface TileBooksProps {
+  publishedDate: number;
+  title: string;
+  authors: string[] | string | null;
+  image: {
+    thumbnail: string;
+  };
+  link: {
+    infoLink: string;
+  };
+  poster: boolean;
+}
+
+export interface NoResultProps {
+  title: string;
+  error404: string;
+}
+
+export interface StyledTileBookProps {
+  hideOnMobile?: boolean;
+}
+
+export interface Book {
+  volumeInfo: VolumeInfo;
 }

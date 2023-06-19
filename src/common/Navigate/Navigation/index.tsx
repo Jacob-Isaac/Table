@@ -15,15 +15,10 @@ const NavigationBar: React.FC = () => {
           <NavigationLogo>📘 Book Browser</NavigationLogo>
         </NavigationLogoLink>
         <NavigationLink to="/home/books">Home</NavigationLink>
-          <NavigationLink to="/home/table">Table</NavigationLink>
+        <NavigationLink to="/home/table">Table</NavigationLink>
         <NavigationSearcher></NavigationSearcher>
       </NavigationList>
     </NavigationBackground>
-       
-   
-          
-      
-    
   );
 };
 

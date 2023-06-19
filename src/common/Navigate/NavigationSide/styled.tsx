@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavigationBackground = styled.div`
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
   height: 100vh;
   width: 145px;
   position: fixed;
@@ -14,7 +14,7 @@ export const NavigationBackground = styled.div`
   justify-content: flex-start;
   padding-top: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-    display:none
+    display: none;
   }
 `;
 

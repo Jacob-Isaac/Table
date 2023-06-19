@@ -1,9 +1,4 @@
-import {
-  ErrorContainer,
-  Title,
-  Text,
-  Button,
-} from "./styled";
+import { ErrorContainer, Title, Text, Button } from "./styled";
 
 function ErrorPage() {
   return (
@@ -13,7 +8,7 @@ function ErrorPage() {
         Please check your network connection
         <br /> and try again
       </Text>
-      <Button to="/movies">Back to home page</Button>
+      <Button to="/home">Back to home page</Button>
     </ErrorContainer>
   );
 }

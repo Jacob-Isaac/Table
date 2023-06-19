@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getPopularMovies = () => {
+export const getPopularBooks = () => {
   return axios
     .get(
       `https://www.googleapis.com/books/v1/volumes?q=search-terms&maxResults=40`

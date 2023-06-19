@@ -4,7 +4,7 @@ export const Roww = styled.span`
   display: flex;
   padding-bottom: 9px;
   margin-bottom: 9px;
-  border-bottom: 1px solid rgb(158, 157, 157);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 export const Content = styled.span`
   cursor: pointer;
@@ -14,13 +14,13 @@ export const Content = styled.span`
 `;
 export const BookTable = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-   margin-left: 150px;
+    margin-left: 150px;
   }
 `;
 export const StyledLink = styled.a`
-  color: black;
+  color: ${({ theme }) => theme.colors.black};
   text-decoration: none;
   &:hover {
-    color: rgb(158, 158, 158);
+    color: ${({ theme }) => theme.colors.grey};
   }
 `;

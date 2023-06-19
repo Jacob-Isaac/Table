@@ -1,8 +1,4 @@
-import {
-  NavigationBackground,
-  Wrapper,
-  Span,
-} from "./styled";
+import { NavigationBackground, Wrapper, Span } from "./styled";
 import * as React from "react";
 import useBreadcrumb from "./useBreadcrumb";
 

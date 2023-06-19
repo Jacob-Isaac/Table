@@ -1,6 +1,5 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+import * as React from "react";
+import Tooltip from "@mui/material/Tooltip";
 import {
   BookTitle,
   BookYear,
@@ -8,25 +7,11 @@ import {
   Poster,
   StyledTileBook,
   Wrapper,
-  RatingSection,
   StyledNavLink,
   A,
   Wrap,
-} from './styled';
-
-interface TileBooksProps {
-  publishedDate: number;
-  title: string;
-  // image: string | null;
-  authors: string[] | string | null;
-  image: {
-    thumbnail: string;
-  };
-  link: {
-    infoLink: string;
-  };
-  poster: boolean;
-}
+} from "./styled";
+import { TileBooksProps } from "../interfaces";
 
 const TileBook: React.FC<TileBooksProps> = ({
   publishedDate,
@@ -34,41 +19,41 @@ const TileBook: React.FC<TileBooksProps> = ({
   image,
   authors,
   link,
-  poster
+  poster,
 }) => {
   const hideTileBookOnMobile = poster;
   let displayedAuthors: string[];
   if (Array.isArray(authors)) {
-    displayedAuthors = authors.slice(0, 3); // Limit authors to three
-  } else if (typeof authors === 'string') {
+    displayedAuthors = authors.slice(0, 3);
+  } else if (typeof authors === "string") {
     displayedAuthors = [authors];
   } else {
-    displayedAuthors = ['Unknown Author'];
+    displayedAuthors = ["Unknown Author"];
   }
   return (
     <Wrapper>
       <StyledTileBook hideOnMobile={hideTileBookOnMobile}>
-      {!image.thumbnail || !image.thumbnail ? (
-          <NoPoster style={{ display: poster ? 'none' : 'block' }} />
+        {!image.thumbnail || !image.thumbnail ? (
+          <NoPoster style={{ display: poster ? "none" : "block" }} />
         ) : (
           <Poster
             src={`${image.thumbnail}`}
-            style={{ display: poster ? 'none' : 'block' }}
+            style={{ display: poster ? "none" : "block" }}
           />
         )}
-        <BookTitle><Wrap><Tooltip title="External link !">
-  <A href={link.infoLink}>{title}</A>
-</Tooltip></Wrap></BookTitle>
+        <BookTitle>
+          <Wrap>
+            <Tooltip title="External link !">
+              <A href={link.infoLink}>{title}</A>
+            </Tooltip>
+          </Wrap>
+        </BookTitle>
         <BookYear>{publishedDate}</BookYear>
         {displayedAuthors.map((author, index) => (
-            <StyledNavLink
-              key={index}
-              to={`/home/table/${author.toString()}`}
-            >
-              {author}
-            </StyledNavLink>
-          ))}
-        <RatingSection></RatingSection>
+          <StyledNavLink key={index} to={`/home/table/${author.toString()}`}>
+            {author}
+          </StyledNavLink>
+        ))}
       </StyledTileBook>
     </Wrapper>
   );

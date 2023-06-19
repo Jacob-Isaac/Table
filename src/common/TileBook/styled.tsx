@@ -1,30 +1,26 @@
 import styled, { css } from "styled-components";
-
 import { NavLink } from "react-router-dom";
+import { StyledTileBookProps } from "../interfaces";
 
-
-interface StyledTileBookProps {
-  hideOnMobile?: boolean;
-}
 export const A = styled.a`
-  color: black; 
-  text-decoration: none; 
+  color: ${({ theme }) => theme.colors.black};
+  text-decoration: none;
 
-display: inline-flex;
+  display: inline-flex;
   align-items: center;
   transition: background-color 0.3s ease;
   border-radius: 10px;
   &:hover {
-    background-color: #e7f7ffdc; 
+    background-color: #e7f7ffdc;
   }
 `;
 export const Wrap = styled.div`
-margin-left:-4px;
-padding:4px;
+  margin-left: -4px;
+  padding: 4px;
   transition: background-color 0.3s ease;
   border-radius: 10px;
   &:hover {
-    background-color: #e7f7ffdc; 
+    background-color: #e7f7ffdc;
   }
 `;
 
@@ -67,7 +63,7 @@ export const StyledTileBook = styled.section<StyledTileBookProps>`
     "tags"
     "whiteSpace"
     "rating";
-    @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
     grid-template-columns: 1fr 1fr;
     column-gap: 16px;
 
@@ -88,14 +84,16 @@ export const StyledTileBook = styled.section<StyledTileBookProps>`
       "poster rating"
       "poster whiteSpace";
   }
-  ${({ hideOnMobile }) => hideOnMobile && css`
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-      display: unset;
-      grid-template-columns: unset;
-      column-gap: unset;
-      grid-template-areas: unset;
-    }
-  `}
+  ${({ hideOnMobile }) =>
+    hideOnMobile &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: unset;
+        grid-template-columns: unset;
+        column-gap: unset;
+        grid-template-areas: unset;
+      }
+    `}
 `;
 export const Poster = styled.img`
   grid-area: poster;
@@ -115,7 +113,6 @@ export const NoPoster = styled.div`
 `;
 
 export const BookTitle = styled.div`
-
   grid-area: title;
   display: flex;
   margin: 16px 0 8px;
@@ -140,21 +137,5 @@ export const BookYear = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.between}px) {
     font-size: 13px;
-  }
-`;
-
-export const RatingSection = styled.section`
-  grid-area: rating;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 12px;
-  align-items: flex-end;
-  align-content: flex-end;
-  gap: 12px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    align-content: flex-start;
-    gap: 8px;
-    flex: 0;
   }
 `;

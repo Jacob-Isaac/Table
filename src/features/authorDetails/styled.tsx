@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-
 export const A = styled.a`
-  color: black; 
-  text-decoration: none; 
-  text-transform: lowercase; 
+  color: ${({ theme }) => theme.colors.black};
+  text-decoration: none;
+  text-transform: lowercase;
   &::first-letter {
-  text-transform: uppercase; 
-}
+    text-transform: uppercase;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -22,7 +21,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 export const Wrapper = styled.section`
-margin-left: 150px;
+  margin-left: 150px;
   display: flex;
   background: ${({ theme }) => theme.colors.white};
   padding: 16px;
@@ -32,7 +31,7 @@ margin-left: 150px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
     padding: 14px;
-  margin-left: 0px;
+    margin-left: 0px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 12px;

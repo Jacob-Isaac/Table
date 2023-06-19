@@ -7,11 +7,14 @@ const useBreadcrumb = (): JSX.Element[] => {
 
   useEffect(() => {
     let currentLink = "";
-    const pathSegments = location.pathname.split("/").filter((crumb) => crumb !== "");
+    const pathSegments = location.pathname
+      .split("/")
+      .filter((crumb) => crumb !== "");
 
     const newCrumbs = pathSegments.map((crumb, index) => {
       const decodedCrumb = decodeURIComponent(crumb.replace(/%20/g, " "));
-      const crumbText = decodedCrumb.charAt(0).toUpperCase() + decodedCrumb.slice(1);
+      const crumbText =
+        decodedCrumb.charAt(0).toUpperCase() + decodedCrumb.slice(1);
       currentLink += `/${crumb}`;
 
       return (

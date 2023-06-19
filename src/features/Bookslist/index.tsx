@@ -7,38 +7,33 @@ import { selectBooks } from "../tableComponent/slice";
 import TileBook from "../../common/TileBook";
 import { DataRow } from "../../common/interfaces";
 
-const MovieList = () => {
+const BookList = () => {
+  const dispatch = useDispatch();
+  const bookList = useSelector(selectBooks);
 
-   const dispatch = useDispatch();
-   const bookList = useSelector(selectBooks);
+  useEffect(() => {
+    dispatch(fetchRandomBooks());
+  }, [dispatch]);
 
-   useEffect(() => {
-      dispatch(fetchRandomBooks());
-   }, [dispatch]);
-
-   return (
-
-               <Content
-                  title="Random Books"
-                  body={
-                     <TilesSection>
-                        {bookList.map((data:DataRow) => (
-                           <TileBook
-                           image={data.volumeInfo.imageLinks}
-                           title={data.volumeInfo.title}
-                           publishedDate={data.volumeInfo.publishedDate}
-                           authors={data.volumeInfo.authors}
-                           link={data.volumeInfo}
-                           poster={false}
-                           />
-                        ))}
-                     </TilesSection>
-                  }
-               />
-
-   );
-
+  return (
+    <Content
+      title="Random Books"
+      body={
+        <TilesSection>
+          {bookList.map((data: DataRow) => (
+            <TileBook
+              image={data.volumeInfo.imageLinks}
+              title={data.volumeInfo.title}
+              publishedDate={data.volumeInfo.publishedDate}
+              authors={data.volumeInfo.authors}
+              link={data.volumeInfo}
+              poster={false}
+            />
+          ))}
+        </TilesSection>
+      }
+    />
+  );
 };
 
-export default MovieList;
-
+export default BookList;

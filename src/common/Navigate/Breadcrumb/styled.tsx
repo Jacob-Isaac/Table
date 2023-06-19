@@ -3,30 +3,29 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 20px auto;
-  white-space: nowrap; 
+  white-space: nowrap;
 
-   * {
+  * {
     display: inline-block;
     margin-right: 10px;
-    vertical-align: middle; 
+    vertical-align: middle;
   }
-
 
   .crumb:last-child:after {
     display: none;
   }
 
   .crumb a {
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     text-decoration: none;
   }
 `;
 export const Span = styled.span`
-    color: white;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const NavigationBackground = styled.div`
-  background-color: #2c92bb;
+  background-color: ${({ theme }) => theme.colors.crumbBlue};
   height: 54px;
   width: 100%;
   min-width: 320px;

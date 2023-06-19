@@ -1,15 +1,16 @@
-import { selectBooks, fetchRandomBooks, fetchFavoritesBooks, setfavoritesList } from "../../slice";
+import {
+  selectBooks,
+  fetchRandomBooks,
+  fetchFavoritesBooks,
+} from "../../slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import TileBook from "../../../../common/TileBook/index";
-import { DataRow, VolumeInfo } from "../../../../common/interfaces";
+import { VolumeInfo } from "../../../../common/interfaces";
 import { BookTable } from "./styled";
-import { useState } from "react";
+import { Book } from "../../../../common/interfaces";
 
-interface Book {
-  volumeInfo: VolumeInfo;
-}
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ const Table = () => {
 
   const ExpandedComponent: React.FC<{ data: Book }> = ({ data }) => (
     <TileBook
-    poster={true}
+      poster={true}
       image={data.volumeInfo.imageLinks}
       title={data.volumeInfo.title}
       publishedDate={data.volumeInfo.publishedDate}
@@ -80,14 +81,13 @@ const Table = () => {
     sortDirection: "asc" | "desc"
   ) => console.log(column.selector, sortDirection);
 
-  const handleChange = ({ selectedRows }:any) => {
-   
-      console.log('Selected Rows: ', selectedRows);
-      if (selectedRows !== null) {
-        localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
-        dispatch(fetchFavoritesBooks(selectedRows));
-      }
-    };
+  const handleChange = ({ selectedRows }: any) => {
+    console.log("Selected Rows: ", selectedRows);
+    if (selectedRows !== null) {
+      localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
+      dispatch(fetchFavoritesBooks(selectedRows));
+    }
+  };
   return (
     <BookTable>
       <DataTable
@@ -103,7 +103,7 @@ const Table = () => {
         pagination
         pointerOnHover
         responsive
-         selectableRows
+        selectableRows
         selectableRowsHighlight
         subHeaderWrap
         onSelectedRowsChange={handleChange}
@@ -113,5 +113,3 @@ const Table = () => {
 };
 
 export default Table;
-// localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
-// dispatch(fetchFavoritesBooks(selectedRows));

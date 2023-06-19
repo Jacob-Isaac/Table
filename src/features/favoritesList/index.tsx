@@ -1,9 +1,9 @@
-import { selectBooks, fetchRandomBooks, fetchFavoritesBooks, setfavoritesList } from "../tableComponent/slice";
+import { fetchFavoritesBooks } from "../tableComponent/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 import TileBook from "../../common/TileBook";
-import { DataRow, VolumeInfo } from "../../common/interfaces";
+import { VolumeInfo } from "../../common/interfaces";
 import { BookTable } from "./styled";
 import { selectFavorites } from "../tableComponent/slice";
 
@@ -12,8 +12,7 @@ interface Book {
 }
 
 const Favorites = () => {
-   const dispatch = useDispatch();
-   
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favoritesBooks");
@@ -98,9 +97,7 @@ const Favorites = () => {
         pagination
         pointerOnHover
         responsive
-       
         subHeaderWrap
-       
       />
     </BookTable>
   );

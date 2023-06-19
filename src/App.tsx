@@ -1,14 +1,9 @@
 import Table from "./features/tableComponent/TablePage/Table/index";
-import {
-  HashRouter,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import NavigationBar from "./common/Navigate/Navigation";
 import NavigationSide from "./common/Navigate/NavigationSide";
 import AuthorDetails from "./features/authorDetails";
-import MoviesList from "./features/Bookslist/index";
+import BooksList from "./features/Bookslist/index";
 import NoResult from "./common/NoResult";
 import BreadCrumbBar from "./common/Navigate/Breadcrumb";
 import Favorites from "./features/favoritesList";
@@ -34,7 +29,7 @@ function App() {
           <Route path="/home" element={<Navigate to="books" />} />
           <Route path="home/table" element={<Table />} />
           <Route path={`home/table/:author`} element={<AuthorDetails />} />
-          <Route path="home/:books" element={<MoviesList />} />
+          <Route path="home/:books" element={<BooksList />} />
           <Route path="home/authors" element={<AuthorDetails />} />
           <Route path="home/favorite" element={<Favorites />} />
         </Routes>
