@@ -17,6 +17,7 @@ const bookSlice = createSlice({
     },
     fetchRandomBooks: (state) => {
       state.isLoading = "loading";
+      console.log(state.isLoading);
     },
     fetchFavoritesBooks: (state, {payload: selectedRows}) => {
     
@@ -28,9 +29,11 @@ const bookSlice = createSlice({
       state.isLoading = "loading";
     },
     setBookList: (state, { payload: movies }) => {
+      console.log(movies);
       state.bookList = movies.items;
       state.isLoading = "success";
       console.log(state.bookList[0].volumeInfo.description);
+      console.log(state.isLoading);
     },
     setAuthorDetails: (state, { payload: authorDetails }) => {
       state.authorDetails = authorDetails.items;

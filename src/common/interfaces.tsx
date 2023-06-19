@@ -1,21 +1,9 @@
-export interface Row {
-  volumeInfo: {
-    title: string;
-    authors: string;
-    publishedDate: number;
-    language: string;
-    image: string;
-    publisher: string;
-  };
-  id: string;
-  kind: string;
-}
 
 export interface BookState {
-  bookList: any;
-  authorDetails: any;
+  bookList: DataRow[];
+  authorDetails: DataRow[];
   isLoading: string;
-  favoritesList: any;
+  favoritesList: DataRow[];
 }
 
 export interface VolumeInfo {
@@ -29,6 +17,7 @@ export interface VolumeInfo {
   imageLinks: {
     thumbnail: string;
   };
+  
 }
 export interface DataRow {
   id: string;

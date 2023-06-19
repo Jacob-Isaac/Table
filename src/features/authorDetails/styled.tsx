@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 
 export const A = styled.a`
-  color: black; /* Set the baseline color you desire */
-  text-decoration: none; /* Remove the underline */
-  text-transform: lowercase; /* Convert the text to lowercase */
+  color: black; 
+  text-decoration: none; 
+  text-transform: lowercase; 
   &::first-letter {
-  text-transform: uppercase; /* Capitalize the first letter */
+  text-transform: uppercase; 
 }
 `;
 
