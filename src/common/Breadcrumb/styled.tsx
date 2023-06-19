@@ -1,13 +1,54 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { useThemeWithoutDefault } from "@mui/system";
+
+
+
+export const ModifiedBreadcrumbs = styled(Breadcrumbs)`
+margin-left: 1000px;
+cursor: pointer;
+`;
+
+export const Wrapper = styled.div`
+  max-width: 1200px;
+  margin: 20px auto;
+
+  > * {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .crumb:after {
+    content: ">";
+    
+  }
+
+  .crumb:last-child:after {
+    display: none;
+  }
+
+  .crumb a {
+    color: white;
+    text-decoration: none;
+  }
+`;
+export const Span = styled.span`
+ 
+    color: white;
+
+`;
+
 
 export const NavigationBackground = styled.div`
-  background-color: black;
-  height: 34px;
+
+  background-color: #000000;
+  height: 54px;
   width: 100%;
   min-width: 320px;
   display: flex;
   align-items: center;
+  z-index: 999;
 `;
 
 export const NavigationList = styled.ul`
