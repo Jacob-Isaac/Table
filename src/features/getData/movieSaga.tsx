@@ -8,8 +8,9 @@ import {
   fetchAuthorDetails,
 } from "../tableComponent/slice";
 
-export function* fetchRandomBooksWorker({
-}: ReturnType<typeof fetchRandomBooks>): Generator<any, void, unknown> {
+export function* fetchRandomBooksWorker({}: ReturnType<
+  typeof fetchRandomBooks
+>): Generator<any, void, unknown> {
   try {
     const popularMovies = yield call(getPopularMovies);
     yield put(setBookList(popularMovies));
@@ -23,7 +24,7 @@ export function* fetchAuthorDetailsWorker({
 }: ReturnType<typeof fetchAuthorDetails>): Generator<any, void, unknown> {
   try {
     if (typeof authors !== "undefined") {
-const authorName = yield call(getAuthorDetails, authors);
+      const authorName = yield call(getAuthorDetails, authors);
       yield put(setAuthorDetails(authorName));
     }
   } catch (error) {
@@ -31,7 +32,7 @@ const authorName = yield call(getAuthorDetails, authors);
   }
 }
 
-export function* movieSaga(): Generator<any, void, unknown> {
+export function* movieSaga() {
   yield takeLatest(fetchRandomBooks.type, fetchRandomBooksWorker);
   yield takeLatest(fetchAuthorDetails.type, fetchAuthorDetailsWorker);
 }

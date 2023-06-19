@@ -1,18 +1,17 @@
 import { ContentTitle, SectionArea } from "./styled";
+import { DataRow } from "../interfaces";
 
 export interface IContent {
- title: any;
-  body: any;
+  title: string;
+  body: React.ReactNode;
   extraContent?: string;
-  pagination?: any;
 }
 
-const Content = ({ title, body, extraContent, pagination }: IContent) => (
+const Content = ({ title, body, extraContent }: IContent) => (
   <SectionArea>
     {extraContent}
     <ContentTitle>{title}</ContentTitle>
     {body}
-    {pagination}
   </SectionArea>
 );
 

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchRandomBooks } from "../tableComponent/slice";
 import { selectBooks } from "../tableComponent/slice";
 import TileBook from "../../common/TileBook";
+import { DataRow } from "../../common/interfaces";
 
 const MovieList = () => {
 
@@ -21,7 +22,7 @@ const MovieList = () => {
                   title="Random Books"
                   body={
                      <TilesSection>
-                        {bookList.map((data:any) => (
+                        {bookList.map((data:DataRow) => (
                            <TileBook
                            image={data.volumeInfo.imageLinks}
                            title={data.volumeInfo.title}

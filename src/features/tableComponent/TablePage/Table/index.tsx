@@ -80,7 +80,7 @@ const Table = () => {
     sortDirection: "asc" | "desc"
   ) => console.log(column.selector, sortDirection);
 
-  const handleChange = ({ selectedRows }: any) => {
+  const handleChange = ({ selectedRows }:any) => {
    
       console.log('Selected Rows: ', selectedRows);
       if (selectedRows !== null) {

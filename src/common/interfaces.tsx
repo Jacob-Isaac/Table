@@ -1,9 +1,9 @@
 
 export interface BookState {
   bookList: DataRow[];
-  authorDetails: any;
+  authorDetails: DataRow[];
   isLoading: string;
-  favoritesList: any;
+  favoritesList: DataRow[];
 }
 
 export interface VolumeInfo {
@@ -17,7 +17,7 @@ export interface VolumeInfo {
   imageLinks: {
     thumbnail: string;
   };
-  poster: any;
+  
 }
 export interface DataRow {
   id: string;
