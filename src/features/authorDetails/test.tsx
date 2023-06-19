@@ -3,6 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchAuthorDetails, selectAuthorDetails } from "../tableComponent/slice";
 import { DataRow } from "../../common/interfaces";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import {
+  BookTitle,
+  BookYear,
+  NoPoster,
+  Poster,
+  StyledTileBook,
+  Wrapper,
+  RatingSection,
+  StyledNavLink,
+  A,
+} from './styled';
+
 
 const AuthorDetails: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,14 +35,21 @@ const AuthorDetails: React.FC = () => {
   console.log(authorDetails);
 
   return (
-    <>
+   <>
       {authorDetails.map((item: DataRow) => (
-        <div style={{ marginLeft: '125px' , marginTop: '5px' }} key={item.volumeInfo.title}>
-          Book: <p>{item.volumeInfo.title}</p>
-        </div>
-      ))}
-    </>
+          <Wrapper>
+      <StyledTileBook>
+        <BookTitle><Tooltip title="External link !" arrow>
+  <Button><A href={item.volumeInfo.infoLink}>{item.volumeInfo.title}</A></Button>
+</Tooltip></BookTitle>
+        <BookYear>{item.volumeInfo.publishedDate}</BookYear>
+        <RatingSection></RatingSection>
+      </StyledTileBook>
+    </Wrapper>
+     ))}
+   </>
   );
 };
 
 export default AuthorDetails;
+

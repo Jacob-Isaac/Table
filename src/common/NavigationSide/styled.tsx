@@ -2,10 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavigationBackground = styled.div`
-  margin-top: 100px;
   background-color: black;
   height: 100vh;
-  width: 115px;
+  width: 145px;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +13,9 @@ export const NavigationBackground = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 20px;
-  z-index: 999;
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+    display:none
+  }
 `;
 
 export const NavigationList = styled.ul`
