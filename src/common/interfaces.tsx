@@ -15,9 +15,11 @@ export interface BookState {
   bookList: any;
   authorDetails: any;
   isLoading: string;
+  favoritesList: any;
 }
 
 export interface VolumeInfo {
+  infoLink: string;
   title: string;
   authors: string;
   publishedDate: number;
@@ -35,4 +37,5 @@ export interface DataRow {
     thumbnail: string;
   };
   authors: string;
+  link: string;
 }
