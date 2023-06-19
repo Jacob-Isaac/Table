@@ -6,10 +6,7 @@ import TileBook from "../../common/TileBook";
 import { VolumeInfo } from "../../common/interfaces";
 import { BookTable } from "./styled";
 import { selectFavorites } from "../tableComponent/slice";
-
-interface Book {
-  volumeInfo: VolumeInfo;
-}
+import { Book } from "../../common/interfaces";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -74,6 +71,7 @@ const Favorites = () => {
       authors={data.volumeInfo.authors}
       link={data.volumeInfo}
       poster={false}
+      key={data.id}
     />
   );
 

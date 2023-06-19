@@ -12,8 +12,8 @@ export function* fetchRandomBooksWorker({}: ReturnType<
   typeof fetchRandomBooks
 >): Generator<any, void, unknown> {
   try {
-    const popularMovies = yield call(getPopularBooks);
-    yield put(setBookList(popularMovies));
+    const popularBooks = yield call(getPopularBooks);
+    yield put(setBookList(popularBooks));
   } catch (error) {
     yield put(setError());
   }

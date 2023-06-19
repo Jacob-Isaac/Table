@@ -44,6 +44,7 @@ export interface TileBooksProps {
     infoLink: string;
   };
   poster: boolean;
+  key: string;
 }
 
 export interface NoResultProps {
@@ -57,4 +58,5 @@ export interface StyledTileBookProps {
 
 export interface Book {
   volumeInfo: VolumeInfo;
+  id: string;
 }

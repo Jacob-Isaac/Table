@@ -27,6 +27,7 @@ const BookList = () => {
               publishedDate={data.volumeInfo.publishedDate}
               authors={data.volumeInfo.authors}
               link={data.volumeInfo}
+              key={data.id}
               poster={false}
             />
           ))}

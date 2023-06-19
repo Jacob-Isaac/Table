@@ -30,12 +30,10 @@ const AuthorDetails: React.FC = () => {
     }
   }, [currentAuthor, dispatch]);
 
-  console.log(authorDetails);
-
   return (
     <>
       {authorDetails.map((item: DataRow) => (
-        <Wrapper>
+        <Wrapper key={item.id}>
           <StyledTileBook>
             <BookTitle>
               <Tooltip title="External link !" arrow>
