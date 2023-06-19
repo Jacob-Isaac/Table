@@ -1,21 +1,24 @@
 import Table from './features/tableComponent/TablePage/Table/index';
-import { HashRouter, Route, Routes} from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate, useLocation} from "react-router-dom";
 import NavigationBar from "./common/Navigation";
-import BreadCrumbBar from './common/Breadcrumb';
 import NavigationSide from './common/NavigationSide';
 import AuthorDetails from "./features/authorDetails/test";
+import MoviesList from "./features/Movieslist/index";
 import NoResult from "./common/NoResult";
+import BreadCrumbBar from './common/Breadcrumb';
+import Favorites from './features/favoritesList';
 
 
 
 function App() {
- 
+
   return (
     <HashRouter>
     <nav>
+    <NavigationSide />
       <NavigationBar />
-       <BreadCrumbBar/>
-       <NavigationSide />
+      <BreadCrumbBar/>
+    
       <Routes>
         <Route
           path="*"
@@ -26,10 +29,13 @@ function App() {
             />
           }
         />
-        <Route path="/" element={<Table/>} />
-          <Route path="/personDetails/:author" element={<AuthorDetails/>} />
-          <Route path="/books" element={<AuthorDetails/>} /> 
-          <Route path="/authors" element={<AuthorDetails/>} />  
+        {/* <Route path="/" element={<Navigate to="home"/>} /> */}
+        <Route path="/home" element={<Navigate to="books"/>} />
+        <Route path="home/table" element={<Table/>} />
+          <Route path={`home/table/:author`} element={<AuthorDetails/>} />
+          <Route path="home/:books" element={<MoviesList/>} /> 
+          <Route path="home/authors" element={<AuthorDetails/>} />  
+          <Route path="home/favorite" element={<Favorites/>} /> 
       </Routes>
     </nav>
   </HashRouter>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 // import BookIcon from "../../iconComponents/BookIcon";
 
 export const NavigationBackground = styled.div`
+
   background-color: black;
   height: 94px;
   width: 100%;
@@ -13,8 +14,8 @@ export const NavigationBackground = styled.div`
 `;
 
 export const NavigationList = styled.ul`
+
   display: grid;
-  margin: 0 auto;
   padding: 21px 11px;
   grid-template-columns: auto auto auto 1fr;
   list-style-type: none;
@@ -36,6 +37,7 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationLink = styled(NavLink)`
+
   background-color: ${({ theme }) => theme.colors.black};
   font-size: 14px;
   line-height: 21px;
@@ -66,19 +68,30 @@ export const NavigationLink = styled(NavLink)`
       border-radius: 24px;
     }
   }
+  @media (min-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+    display: none
+  }
 `;
 
 export const NavigationLogo = styled.div`
+
   font-weight: ${({ theme }) => theme.fontSize.medium};
   font-size: 23px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  margin-top: 7px;
+  margin-left: 150px;
   color: ${({ theme }) => theme.colors.white};
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-top: 8px;
     height: 17px;
     font-size: 13px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+    margin-left: 0px;
   }
 `;
 

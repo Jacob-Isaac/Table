@@ -1,24 +1,27 @@
-import { selectBooks, fetchRandomBooks, fetchFavoritesBooks, setfavoritesList } from "../../slice";
+import { selectBooks, fetchRandomBooks, fetchFavoritesBooks, setfavoritesList } from "../tableComponent/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import TileAuthorBooks from "../../../../common/TileAuthorBooks/index";
-import { DataRow, VolumeInfo } from "../../../../common/interfaces";
+import TileAuthorBooks from "../../common/TileAuthorBooks";
+import { DataRow, VolumeInfo } from "../../common/interfaces";
 import { BookTable } from "./styled";
-import { useState } from "react";
+import { selectFavorites } from "../tableComponent/slice";
 
 interface Book {
   volumeInfo: VolumeInfo;
 }
 
-const Table = () => {
-  const dispatch = useDispatch();
-  const bookList: Book[] = useSelector(selectBooks);
+const Favorites = () => {
+   const dispatch = useDispatch();
+   
 
   useEffect(() => {
-    dispatch(fetchRandomBooks());
+    const storedFavorites = localStorage.getItem("favoritesBooks");
+    if (storedFavorites) {
+      dispatch(fetchFavoritesBooks(JSON.parse(storedFavorites)));
+    }
   }, [dispatch]);
-
+  const favoritesList: Book[] = useSelector(selectFavorites);
   const columns: TableColumn<Book>[] = [
     {
       name: "Author",
@@ -79,19 +82,11 @@ const Table = () => {
     sortDirection: "asc" | "desc"
   ) => console.log(column.selector, sortDirection);
 
-  const handleChange = ({ selectedRows }: any) => {
-   
-      console.log('Selected Rows: ', selectedRows);
-      if (selectedRows !== null) {
-        localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
-        dispatch(fetchFavoritesBooks(selectedRows));
-      }
-    };
   return (
     <BookTable>
       <DataTable
         columns={columns}
-        data={bookList}
+        data={favoritesList}
         onSort={handleSort}
         dense
         expandOnRowClicked
@@ -102,15 +97,12 @@ const Table = () => {
         pagination
         pointerOnHover
         responsive
-         selectableRows
-        selectableRowsHighlight
+       
         subHeaderWrap
-        onSelectedRowsChange={handleChange}
+       
       />
     </BookTable>
   );
 };
 
-export default Table;
-// localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
-// dispatch(fetchFavoritesBooks(selectedRows));
+export default Favorites;

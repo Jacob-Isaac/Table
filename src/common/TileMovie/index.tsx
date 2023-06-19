@@ -10,19 +10,19 @@ import {
   Wrapper,
   RatingSection,
   StyledNavLink,
+  A,
 } from './styled';
 
 interface TileBooksProps {
   publishedDate: number;
   title: string;
-  // link: string | number | object | undefined;
-  link: {
-    infoLink: string;
-  };
   // image: string | null;
   authors: string[] | string | null;
   image: {
     thumbnail: string;
+  };
+  link: {
+    infoLink: string;
   };
 }
 
@@ -31,7 +31,7 @@ const TileAuthorBooks: React.FC<TileBooksProps> = ({
   title,
   image,
   authors,
-  link,
+  link
 }) => {
   return (
     <Wrapper>
@@ -42,7 +42,7 @@ const TileAuthorBooks: React.FC<TileBooksProps> = ({
           <Poster src={`${image.thumbnail}`} />
         )}
         <BookTitle><Tooltip title="External link !" arrow>
-  <Button><a href={link.infoLink}>{title}</a></Button>
+  <Button><A href={link.infoLink}>{title}</A></Button>
 </Tooltip></BookTitle>
         <BookYear>{publishedDate}</BookYear>
         {authors && Array.isArray(authors) ? (
