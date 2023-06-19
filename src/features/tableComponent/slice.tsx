@@ -13,26 +13,20 @@ const bookSlice = createSlice({
   reducers: {
     fetchRandomBooks: (state) => {
       state.isLoading = "loading";
-      console.log(state.isLoading);
     },
     fetchFavoritesBooks: (state, { payload: selectedRows }) => {
       state.favoritesList = selectedRows;
-      console.log(state.favoritesList);
     },
     fetchAuthorDetails: (state, { payload: author }) => {
       state.isLoading = "loading";
     },
-    setBookList: (state, { payload: movies }) => {
-      console.log(movies);
-      state.bookList = movies.items;
+    setBookList: (state, { payload: books }) => {
+      state.bookList = books.items;
       state.isLoading = "success";
-      console.log(state.bookList[0].volumeInfo.description);
-      console.log(state.isLoading);
     },
     setAuthorDetails: (state, { payload: authorDetails }) => {
       state.authorDetails = authorDetails.items;
       state.isLoading = "success";
-      console.log(state.authorDetails);
     },
     setError: (state) => {
       state.isLoading = "error";

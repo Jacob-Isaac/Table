@@ -73,6 +73,7 @@ const Table = () => {
       publishedDate={data.volumeInfo.publishedDate}
       authors={data.volumeInfo.authors}
       link={data.volumeInfo}
+      key={data.id}
     />
   );
 
@@ -82,7 +83,6 @@ const Table = () => {
   ) => console.log(column.selector, sortDirection);
 
   const handleChange = ({ selectedRows }: any) => {
-    console.log("Selected Rows: ", selectedRows);
     if (selectedRows !== null) {
       localStorage.setItem("favoritesBooks", JSON.stringify(selectedRows));
       dispatch(fetchFavoritesBooks(selectedRows));
