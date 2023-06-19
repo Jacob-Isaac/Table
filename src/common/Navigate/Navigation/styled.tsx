@@ -1,10 +1,8 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import BookIcon from "../../iconComponents/BookIcon";
 
 export const NavigationBackground = styled.div`
-
-  background-color: black;
+  background-color: #000000;
   height: 94px;
   width: 100%;
   min-width: 320px;
@@ -14,7 +12,6 @@ export const NavigationBackground = styled.div`
 `;
 
 export const NavigationList = styled.ul`
-
   display: grid;
   padding: 21px 11px;
   grid-template-columns: auto auto auto 1fr;
@@ -37,7 +34,6 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationLink = styled(NavLink)`
-
   background-color: ${({ theme }) => theme.colors.black};
   font-size: 14px;
   line-height: 21px;
@@ -69,12 +65,11 @@ export const NavigationLink = styled(NavLink)`
     }
   }
   @media (min-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-    display: none
+    display: none;
   }
 `;
 
 export const NavigationLogo = styled.div`
-
   font-weight: ${({ theme }) => theme.fontSize.medium};
   font-size: 23px;
   display: flex;
@@ -89,7 +84,7 @@ export const NavigationLogo = styled.div`
     height: 17px;
     font-size: 13px;
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
     margin-left: 0px;
   }
@@ -124,13 +119,3 @@ export const NavigationLogoLink = styled(NavLink)`
     margin-right: 50px;
   }
 `;
-
-// export const StyledMovieIcon = styled(BookIcon)`
-//   width: 35px;
-//   margin-right: 16px;
-//   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-//     width: 20px;
-//     margin-right: 6px;
-//     margin-bottom: 2px;
-//   }
-// `;

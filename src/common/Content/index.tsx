@@ -1,6 +1,13 @@
 import { ContentTitle, SectionArea } from "./styled";
 
-const Content = ({ title, body, extraContent, pagination }) => (
+export interface IContent {
+ title: any;
+  body: any;
+  extraContent?: string;
+  pagination?: any;
+}
+
+const Content = ({ title, body, extraContent, pagination }: IContent) => (
   <SectionArea>
     {extraContent}
     <ContentTitle>{title}</ContentTitle>

@@ -1,4 +1,4 @@
-import { call, delay, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovies, getAuthorDetails } from "./getData";
 import {
   fetchRandomBooks,
@@ -9,10 +9,8 @@ import {
 } from "../tableComponent/slice";
 
 export function* fetchRandomBooksWorker({
-  payload: pageNumber,
 }: ReturnType<typeof fetchRandomBooks>): Generator<any, void, unknown> {
   try {
-    yield delay(700);
     const popularMovies = yield call(getPopularMovies);
     yield put(setBookList(popularMovies));
   } catch (error) {
@@ -25,8 +23,7 @@ export function* fetchAuthorDetailsWorker({
 }: ReturnType<typeof fetchAuthorDetails>): Generator<any, void, unknown> {
   try {
     if (typeof authors !== "undefined") {
-      yield delay(700);
-      const authorName = yield call(getAuthorDetails, authors);
+const authorName = yield call(getAuthorDetails, authors);
       yield put(setAuthorDetails(authorName));
     }
   } catch (error) {

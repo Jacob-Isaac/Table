@@ -2,7 +2,7 @@ import { selectBooks, fetchRandomBooks, fetchFavoritesBooks, setfavoritesList } 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import TileAuthorBooks from "../../../../common/TileAuthorBooks/index";
+import TileBook from "../../../../common/TileBook/index";
 import { DataRow, VolumeInfo } from "../../../../common/interfaces";
 import { BookTable } from "./styled";
 import { useState } from "react";
@@ -65,7 +65,8 @@ const Table = () => {
   }
 
   const ExpandedComponent: React.FC<{ data: Book }> = ({ data }) => (
-    <TileAuthorBooks
+    <TileBook
+    poster={true}
       image={data.volumeInfo.imageLinks}
       title={data.volumeInfo.title}
       publishedDate={data.volumeInfo.publishedDate}

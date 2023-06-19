@@ -5,6 +5,7 @@ export const ContentTitle = styled.h1`
   align-items: center;
   font-size: 36px;
   margin-left: 16px;
+  margin-bottom: 20px;
   font-weight: ${({ theme }) => theme.fontSize.bold};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

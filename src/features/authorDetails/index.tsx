@@ -9,12 +9,9 @@ import Tooltip from '@mui/material/Tooltip';
 import {
   BookTitle,
   BookYear,
-  NoPoster,
-  Poster,
   StyledTileBook,
   Wrapper,
   RatingSection,
-  StyledNavLink,
   A,
 } from './styled';
 
@@ -38,14 +35,14 @@ const AuthorDetails: React.FC = () => {
    <>
       {authorDetails.map((item: DataRow) => (
           <Wrapper>
-      <StyledTileBook>
-        <BookTitle><Tooltip title="External link !" arrow>
-  <Button><A href={item.volumeInfo.infoLink}>{item.volumeInfo.title}</A></Button>
-</Tooltip></BookTitle>
-        <BookYear>{item.volumeInfo.publishedDate}</BookYear>
-        <RatingSection></RatingSection>
-      </StyledTileBook>
-    </Wrapper>
+          <StyledTileBook>
+            <BookTitle><Tooltip title="External link !" arrow>
+      <Button><A href={item.volumeInfo.infoLink}>{item.volumeInfo.title}</A></Button>
+    </Tooltip></BookTitle>
+            <BookYear>{item.volumeInfo.publishedDate}</BookYear>
+            <RatingSection></RatingSection>
+          </StyledTileBook>
+        </Wrapper>
      ))}
    </>
   );

@@ -1,5 +1,32 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
 import { NavLink } from "react-router-dom";
+
+
+interface StyledTileBookProps {
+  hideOnMobile?: boolean;
+}
+export const A = styled.a`
+  color: black; 
+  text-decoration: none; 
+
+display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  &:hover {
+    background-color: #e7f7ffdc; 
+  }
+`;
+export const Wrap = styled.div`
+margin-left:-4px;
+padding:4px;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  &:hover {
+    background-color: #e7f7ffdc; 
+  }
+`;
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
@@ -9,6 +36,10 @@ export const StyledNavLink = styled(NavLink)`
   a:visited,
   &:active {
     color: ${({ theme }) => theme.colors.white};
+  }
+  transition: text-decoration 0.3s ease;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 export const Wrapper = styled.section`
@@ -26,7 +57,7 @@ export const Wrapper = styled.section`
     padding: 12px;
   }
 `;
-export const StyledTileBook = styled.section`
+export const StyledTileBook = styled.section<StyledTileBookProps>`
   display: grid;
   grid-template-rows: repeat(4, min-content) 1fr;
   grid-template-areas:
@@ -36,7 +67,7 @@ export const StyledTileBook = styled.section`
     "tags"
     "whiteSpace"
     "rating";
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
     grid-template-columns: 1fr 1fr;
     column-gap: 16px;
 
@@ -57,6 +88,14 @@ export const StyledTileBook = styled.section`
       "poster rating"
       "poster whiteSpace";
   }
+  ${({ hideOnMobile }) => hideOnMobile && css`
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+      display: unset;
+      grid-template-columns: unset;
+      column-gap: unset;
+      grid-template-areas: unset;
+    }
+  `}
 `;
 export const Poster = styled.img`
   grid-area: poster;
@@ -76,19 +115,20 @@ export const NoPoster = styled.div`
 `;
 
 export const BookTitle = styled.div`
+
   grid-area: title;
   display: flex;
   margin: 16px 0 8px;
   font-weight: ${({ theme }) => theme.fontSize.medium};
   line-height: 130%;
-  font-size: 22px;
+  font-size: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.between}px) {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0 0 4px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: 22px;
+    font-size: 16px;
   }
 `;
 export const BookYear = styled.div`
